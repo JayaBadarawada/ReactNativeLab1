@@ -1,11 +1,9 @@
 {
   "expo": {
-    "name": "exp",
-    "slug": "exp",
+    "name": "Min Recipe",
+    "slug": "Min Recipe",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"]
   },
   "name": "exp"
 }

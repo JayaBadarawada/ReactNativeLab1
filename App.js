@@ -1,21 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { Button, StyleSheet, View } from 'react-native'
+import Home from './components/Home'
+import ImageCom from './components/ImageCom'
+import { useState } from 'react'
+import Meal from './components/Meal'
+import Feedback from './components/Feedback'
+export const ThemeContext = React.createContext()
 
 export default function App() {
+  const [darkTheme, setDarkTheme] = useState(false)
+  function toggleTheme() {
+    setDarkTheme((prevDarkTheme) => !prevDarkTheme)
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <ThemeContext.Provider value={darkTheme}>
+      <ImageCom />
+      <Home />
+      <Meal />
+      <View style={styles.buttonContainer}>
+        <Button title="Theme" color="#777" onPress={toggleTheme} />
+      </View>
+      <Feedback />
+    </ThemeContext.Provider>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  buttonContainer: {
+    alignItems: 'center'
+  }
+})
